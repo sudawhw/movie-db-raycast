@@ -1,0 +1,87 @@
+{
+  "name": "drama-ratings",
+  "title": "Movie db",
+  "description": "Search movie and TV ratings, metadata, and public share links",
+  "icon": "icon.png",
+  "author": "local",
+  "license": "MIT",
+  "commands": [
+    {
+      "name": "search",
+      "title": "Search Movies and TV",
+      "description": "Find ratings, metadata, and public cloud shares",
+      "mode": "view"
+    }
+  ],
+  "preferences": [
+    {
+      "name": "language",
+      "title": "Language / 语言",
+      "description": "Interface language / 界面语言",
+      "type": "dropdown",
+      "required": false,
+      "default": "en",
+      "data": [
+        {
+          "title": "English",
+          "value": "en"
+        },
+        {
+          "title": "简体中文",
+          "value": "zh"
+        }
+      ]
+    },
+    {
+      "name": "omdbKey",
+      "title": "OMDb API Key",
+      "description": "在 omdbapi.com/apikey.aspx 申请",
+      "type": "password",
+      "required": false
+    },
+    {
+      "name": "doubanKey",
+      "title": "ApiZero API Key (Optional)",
+      "description": "API key for Douban ratings from ApiZero.",
+      "type": "password",
+      "required": false
+    },
+    {
+      "name": "fallbackUrl",
+      "title": "Douban Fallback API URL (Optional)",
+      "description": "HTTPS URL containing {id}; JSON must return score or data.score.",
+      "type": "textfield",
+      "required": false
+    },
+    {
+      "name": "tmdbKey",
+      "title": "TMDB API Key or Read Access Token (Optional)",
+      "description": "Get an API Key or Read Access Token from TMDB account settings.",
+      "type": "password",
+      "required": false
+    },
+    {
+      "name": "telegramChannels",
+      "title": "Telegram Search Channels",
+      "description": "Comma-separated channel names, @usernames, or t.me links. Clear to restore defaults.",
+      "type": "textfield",
+      "required": false,
+      "default": "@Oscarono, @Remux4KFilm, @gimy115, @Lsp115, @vip115hot, @QukanMovie, @jnjy_5, @XiangxiuNBB",
+      "placeholder": "@channel1, @channel2"
+    }
+  ],
+  "dependencies": {
+    "@raycast/api": "^1.100.0",
+    "cheerio": "^1.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22",
+    "@types/react": "^19",
+    "typescript": "^5.8"
+  },
+  "scripts": {
+    "dev": "ray develop",
+    "build": "ray build",
+    "test": "node --experimental-strip-types --test tests/*.test.ts"
+  }
+}
