@@ -710,8 +710,8 @@ function Ratings({ item }: { item: Item }) {
     .map((x) => escape(x!))
     .join(" · ");
   const posterCell = poster
-    ? `![海报](<${poster}${poster.includes("?") ? "&" : "?"}raycast-width=140&raycast-height=210>)`
-    : "暂无海报";
+    ? `![${tr("海报")}](<${poster}${poster.includes("?") ? "&" : "?"}raycast-width=140&raycast-height=210>)`
+    : tr("暂无海报");
   const scoreCell = `**${escape(item.title)}**<br>${metadataLine}<br><br>${badge("douban.png", tr("豆瓣"))} **${tr(compact(score))}**<br>${badge("imdb.png", "IMDb")} **${tr(compact(imdb))}**<br>${badge("tomato.png", tr("烂番茄"))} **${tr(compact(rotten))}**`;
   const markdown = `| ${posterCell} | ${scoreCell} |\n| :---: | :--- |\n\n**${tr("剧情简介")}**\n\n${overview ? escape(overview) : tr("暂无简介，资料加载完成后会显示在这里。")}\n\n${tr("来源：")}${tr(overviewSource)}${issues.length ? `\n\n${issues.map((x) => escape(tr(x))).join("\n\n")}` : ""}`;
   const actors = tmdb?.cast.slice(0, 6) || [];
